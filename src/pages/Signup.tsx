@@ -46,7 +46,7 @@ export const Signup = () => {
                     variant="outlined"
                     value={formik.values.username}
                     onChange={formik.handleChange}
-                    error={!!formik.errors.username && formik.touched.username}
+                    error={!formik.errors.username && formik.touched.username}
                     helperText={formik.errors.username}
                     sx={{marginBottom: 2}}
                 />
@@ -58,7 +58,7 @@ export const Signup = () => {
                     variant="outlined"
                     value={formik.values.email}
                     onChange={formik.handleChange}
-                    error={!!formik.errors.email && formik.touched.email}
+                    error={!formik.errors.email && formik.touched.email}
                     helperText={formik.errors.email}
                     sx={{marginBottom: 2}}
                 />
@@ -70,7 +70,7 @@ export const Signup = () => {
                     variant="outlined"
                     value={formik.values.password}
                     onChange={formik.handleChange}
-                    error={!!formik.errors.password && formik.touched.password}
+                    error={!formik.errors.password && formik.touched.password}
                     helperText={formik.errors.password}
                     sx={{marginBottom: 2}}
                 />
@@ -82,7 +82,7 @@ export const Signup = () => {
                     variant="outlined"
                     value={formik.values.confirmPassword}
                     onChange={formik.handleChange}
-                    error={!!formik.errors.confirmPassword && formik.touched.confirmPassword}
+                    error={!formik.errors.confirmPassword && formik.touched.confirmPassword}
                     helperText={formik.errors.confirmPassword}
                     sx={{marginBottom: 2}}
                 />
@@ -94,16 +94,27 @@ export const Signup = () => {
                     variant="outlined"
                     value={formik.values.age}
                     onChange={formik.handleChange}
-                    error={!!formik.errors.age && formik.touched.age}
+                    error={!formik.errors.age && formik.touched.age}
                     helperText={formik.errors.age}
                     sx={{marginBottom: 2}}
                 />
-                <FormControlLabel control={<Checkbox/>}
-                    label="F"
-                />
-                 <FormControlLabel control={<Checkbox/>}
-                    label="M"
-                />
+                <FormControl fullWidth>
+                    <InputLabel>Gender</InputLabel>
+                    <Select
+                    name="gender"
+                    id="gender"
+                    type="string"
+                    label="Gender"
+                    variant="outlined"
+                    value={formik.values.gender}
+                    onChange={formik.handleChange}
+                    sx={{marginBottom: 2}}
+                    >
+        
+                    <MenuItem value={1}>F</MenuItem>
+                    <MenuItem value={2}>M</MenuItem>
+                    </Select>
+                </FormControl>
                 <FormControl fullWidth>
                     <InputLabel>Preferences</InputLabel>
                     <Select

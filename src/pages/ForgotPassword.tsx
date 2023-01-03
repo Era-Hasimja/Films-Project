@@ -1,5 +1,4 @@
 import { Box, Button, TextField } from "@mui/material";
-import { NavLink } from "react-router-dom";
 import { useForgotPasswordFormik } from "../components/ForgotPassword/ForgotPasswordForm/useForgotPasswordFormik";
 
 
@@ -47,6 +46,8 @@ export const ForgotPassword = () => {
                 variant="outlined"
                 value={formik.values.email}
                 onChange={formik.handleChange}
+                error={!!formik.errors.email && formik.touched.email}
+                    helperText={formik.errors.email}
                 sx={{marginBottom: 2}}
             
             />

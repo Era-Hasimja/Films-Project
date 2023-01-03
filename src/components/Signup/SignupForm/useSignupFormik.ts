@@ -11,6 +11,7 @@ const SignupSchema = Yup.object().shape({
     .matches(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, "Password should contain at least one special character"),
     confirmPassword: Yup.string().required("Confirm Password is required!").oneOf([Yup.ref("password"), null], "Passwords must match"),
     age: Yup.number().required("Age is required!").min(16, "You must be 16+ years old"),
+    gender: Yup.string().required("Gender is required!"),
     preferences: Yup.string().optional()
     
 
@@ -22,6 +23,7 @@ const SignupSchema = Yup.object().shape({
     password: string;
     confirmPassword: string;
     age: number;
+    gender: string,
     preferences:string;
 
 
@@ -39,8 +41,9 @@ export const useSignupFormik = ({ onSubmit } : UseSignupFormOptions) => {
           username: "",
           email: "",
           password: "",
-          age: 0,
           confirmPassword: "",
+          age: 0,
+          gender: "",
           preferences: "",
         },
         validateOnBlur: false,
